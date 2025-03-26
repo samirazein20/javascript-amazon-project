@@ -1,3 +1,4 @@
+import {cart} from '../data/cart.js'
 //combine html together
 let productsHTML  = '';
 

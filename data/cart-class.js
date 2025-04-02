@@ -1,13 +1,14 @@
 class Cart {
-  cartItems = undefined;
-  loadStorageKey = undefined;
+  //property without a # is a public property. Properties with # are private
+  cartItems;
+  #loadStorageKey;
 
   constructor(loadStorageKey) {
-    this.loadStorageKey = loadStorageKey;
-    this.loadFromStorage();
+    this.#loadStorageKey = loadStorageKey;
+    this.#loadFromStorage();
   }
 
-  loadFromStorage() {
+  #loadFromStorage() {
     this.cartItems = JSON.parse(localStorage.getItem(this.loadStorageKey));
   
     if(!this.cartItems) {
@@ -76,6 +77,8 @@ class Cart {
 
 const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
+
+// cart.#localStorageKey = 'test'
 
 console.log(cart)
 console.log(businessCart)
